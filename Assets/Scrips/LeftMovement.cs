@@ -7,10 +7,25 @@ public class LeftMovement : MonoBehaviour
     public float speed;
     BoxCollider2D box;
     float groundWidht;
+    float obstacleWidth;
+
     void Start()
     {
-        box = GetComponent<BoxCollider2D>();
-        groundWidht = box.size.x;
+        //ground nesnesi tag kontrolü
+        if (gameObject.CompareTag("Ground"))
+        {
+            box = GetComponent<BoxCollider2D>();
+            groundWidht = box.size.x;
+        }
+
+
+        //engellerin yeniden baþa getirilmesi
+        else if (gameObject.CompareTag("Obstacle"))
+        {
+            obstacleWidth = GameObject.FindGameObjectWithTag("Column").GetComponent<BoxCollider2D>().size.x; 
+        }
+
+       
         
     }
 
@@ -20,10 +35,18 @@ public class LeftMovement : MonoBehaviour
         //sola sürekli hareket
         transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
 
-        //ground nesnesini hareket anýnda ekrandan çýktýðýnda baþa alma
-        if (transform.position.x <= -groundWidht)
+        if (gameObject.CompareTag("Ground"))
         {
-            transform.position = new Vector2(transform.position.x + 2 * groundWidht, transform.position.y);
+            //ground nesnesini hareket anýnda ekrandan çýktýðýnda baþa alma
+            if (transform.position.x <= -groundWidht)
+            {
+                transform.position = new Vector2(transform.position.x + 2 * groundWidht, transform.position.y);
+            }
         }
+
+       
+        
+
+        
      }
 }

@@ -8,7 +8,7 @@ public class Fish : MonoBehaviour
     public float speed;
     int angle;
     int maxAngle = 20;
-    int minAngle = -40;
+    int minAngle = -60;
 
     void Start()
     {
