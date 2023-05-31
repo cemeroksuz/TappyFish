@@ -32,8 +32,13 @@ public class LeftMovement : MonoBehaviour
 
     void Update()
     {
-        //sola sürekli hareket
-        transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+
+        if (GameManager.gameOver == false)
+        {
+            //sola sürekli hareket
+            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+        }
+        
 
         if (gameObject.CompareTag("Ground"))
         {
