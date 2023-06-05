@@ -12,7 +12,7 @@ public class Medal : MonoBehaviour
 
     void Start()
     {
-        img = GetComponent<Image>();
+        img = GetComponent<Image>(); 
         int gameScore = GameManager.gameScore;
 
         if (gameScore> 0  && gameScore <= 1)
