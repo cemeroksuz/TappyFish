@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     Text scoreText;
     public Text panelScore;
     public Text panelHighScore;
+    public GameObject New;
 
     void Start()
     {
@@ -33,10 +34,15 @@ public class Score : MonoBehaviour
             highScore = score;
             panelHighScore.text = highScore.ToString();
             PlayerPrefs.SetInt("highscore",highScore);  //yüksek skoru tutmak için player prefs kullanýyoruz (veritabanýna gerek kalmaz)
+            New.SetActive(true);
         } 
 
     }
-    
+    public int GetScore()
+    {
+        return score;
+    }
+
     void Update()
     {
         

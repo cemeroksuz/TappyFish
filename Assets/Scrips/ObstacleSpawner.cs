@@ -22,14 +22,14 @@ public class ObstacleSpawner : MonoBehaviour
     {
 
        //InvokeRepeating("InstantiateObstacle", 0, maxTime); //alttaki timer iþlemleri yerine kullanýlabilir.
-       InstantiateObstacle();
+       //InstantiateObstacle();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (GameManager.gameOver == false)
+        if (GameManager.gameOver == false && GameManager.gameStarted == true)
         {
             timer += Time.deltaTime;
 
